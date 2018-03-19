@@ -1,0 +1,3 @@
+useDynLib(dtwar)
+importFrom(Rcpp, evalCpp)
+exportPattern("^[[:alpha:]]+")

@@ -4,3 +4,5 @@
 .Ruserdata
 .Rbuildignore
 *.Rproj
+*.o
+*.dll

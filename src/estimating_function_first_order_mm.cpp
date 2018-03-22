@@ -52,7 +52,7 @@ double estimating_function_first_order_mm(const arma::colvec & parameters
   
   // loop over data to calculate criterion
   // start at 2nd (=1) row
-  for(unsigned int row_number = 1; row_number < number_of_obs; ++row_number){
+  for(unsigned int row_number = 1; row_number < number_of_obs; row_number++){
     
     y_matrix_t(triangular_part_of_sigma) = data.row(row_number).t();
     y_matrix_t = arma::symmatl(y_matrix_t);

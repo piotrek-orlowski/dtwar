@@ -25,19 +25,8 @@ arma::mat long_run_sigma(arma::mat m_matrix, arma::mat sigma_star_matrix){
   arma::vec sigma_vec = arma::vectorise(sigma_star_matrix);
 
   arma::mat sigma_long_vec = arma::solve(unit_n_squared - m_kron_m,sigma_vec);
-  
+
   sigma_long_vec.reshape(model_dimension, model_dimension);
-  
-  // arma::mat sigma_long(model_dimension, model_dimension, arma::fill::zeros);
-  // arma::mat m_power(m_matrix);
-  // 
-  // m_power = m_matrix;
-  // 
-  // // attempt long-run approx
-  // for(unsigned int it = 0; it < 100; it++){
-  //   sigma_long += m_power * sigma_star_matrix * m_power.t();
-  //   m_power *= m_matrix;
-  // }
   
   return sigma_long_vec;
 }

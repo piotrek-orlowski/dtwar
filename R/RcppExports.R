@@ -5,23 +5,15 @@ estimating_function_first_order_mm <- function(parameters, data, model_dimension
     .Call('dtwar_estimating_function_first_order_mm', PACKAGE = 'dtwar', parameters, data, model_dimension)
 }
 
+estimating_function_second_order_mm <- function(portfolio_allocation, sigma_star_matrix, m_matrix, data) {
+    .Call('dtwar_estimating_function_second_order_mm', PACKAGE = 'dtwar', portfolio_allocation, sigma_star_matrix, m_matrix, data)
+}
+
 long_run_sigma <- function(m_matrix, sigma_star_matrix) {
     .Call('dtwar_long_run_sigma', PACKAGE = 'dtwar', m_matrix, sigma_star_matrix)
 }
 
-rcpparma_hello_world <- function() {
-    .Call('dtwar_rcpparma_hello_world', PACKAGE = 'dtwar')
-}
-
-rcpparma_outerproduct <- function(x) {
-    .Call('dtwar_rcpparma_outerproduct', PACKAGE = 'dtwar', x)
-}
-
-rcpparma_innerproduct <- function(x) {
-    .Call('dtwar_rcpparma_innerproduct', PACKAGE = 'dtwar', x)
-}
-
-rcpparma_bothproducts <- function(x) {
-    .Call('dtwar_rcpparma_bothproducts', PACKAGE = 'dtwar', x)
+war_prediction_and_residuals <- function(m_matrix, sigma_matrix, data) {
+    .Call('dtwar_war_prediction_and_residuals', PACKAGE = 'dtwar', m_matrix, sigma_matrix, data)
 }
 

@@ -19,6 +19,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// estimating_function_second_order_mm
+arma::vec estimating_function_second_order_mm(const arma::colvec portfolio_allocation, const arma::mat sigma_star_matrix, const arma::mat m_matrix, const arma::mat data);
+RcppExport SEXP dtwar_estimating_function_second_order_mm(SEXP portfolio_allocationSEXP, SEXP sigma_star_matrixSEXP, SEXP m_matrixSEXP, SEXP dataSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::colvec >::type portfolio_allocation(portfolio_allocationSEXP);
+    Rcpp::traits::input_parameter< const arma::mat >::type sigma_star_matrix(sigma_star_matrixSEXP);
+    Rcpp::traits::input_parameter< const arma::mat >::type m_matrix(m_matrixSEXP);
+    Rcpp::traits::input_parameter< const arma::mat >::type data(dataSEXP);
+    rcpp_result_gen = Rcpp::wrap(estimating_function_second_order_mm(portfolio_allocation, sigma_star_matrix, m_matrix, data));
+    return rcpp_result_gen;
+END_RCPP
+}
 // long_run_sigma
 arma::mat long_run_sigma(arma::mat m_matrix, arma::mat sigma_star_matrix);
 RcppExport SEXP dtwar_long_run_sigma(SEXP m_matrixSEXP, SEXP sigma_star_matrixSEXP) {
@@ -31,46 +45,16 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// rcpparma_hello_world
-arma::mat rcpparma_hello_world();
-RcppExport SEXP dtwar_rcpparma_hello_world() {
+// war_prediction_and_residuals
+List war_prediction_and_residuals(const arma::mat m_matrix, const arma::mat sigma_matrix, const arma::mat data);
+RcppExport SEXP dtwar_war_prediction_and_residuals(SEXP m_matrixSEXP, SEXP sigma_matrixSEXP, SEXP dataSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    rcpp_result_gen = Rcpp::wrap(rcpparma_hello_world());
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_outerproduct
-arma::mat rcpparma_outerproduct(const arma::colvec& x);
-RcppExport SEXP dtwar_rcpparma_outerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_outerproduct(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_innerproduct
-double rcpparma_innerproduct(const arma::colvec& x);
-RcppExport SEXP dtwar_rcpparma_innerproduct(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_innerproduct(x));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpparma_bothproducts
-Rcpp::List rcpparma_bothproducts(const arma::colvec& x);
-RcppExport SEXP dtwar_rcpparma_bothproducts(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::colvec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpparma_bothproducts(x));
+    Rcpp::traits::input_parameter< const arma::mat >::type m_matrix(m_matrixSEXP);
+    Rcpp::traits::input_parameter< const arma::mat >::type sigma_matrix(sigma_matrixSEXP);
+    Rcpp::traits::input_parameter< const arma::mat >::type data(dataSEXP);
+    rcpp_result_gen = Rcpp::wrap(war_prediction_and_residuals(m_matrix, sigma_matrix, data));
     return rcpp_result_gen;
 END_RCPP
 }

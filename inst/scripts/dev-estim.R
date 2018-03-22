@@ -4,11 +4,11 @@ library(dplyr)
 variance_data <- read.csv("../more-vrps/data/covariance-6-fama-french-factors-daily-2018-03-19.csv")
 
 # filter for mkt, smb, hml
-# variance_data <- variance_data %>% 
-#    filter(of %in% c("mkt_rf","hml","smb","cma"), with %in% c("mkt_rf","hml","smb","cma"))
+variance_data <- variance_data %>%
+   filter(of %in% c("mkt_rf","hml","smb"), with %in% c("mkt_rf","hml","smb"))
 
 # set up initial parameters
-number_of_series <- 6
+number_of_series <- 3
 
 # convert to desired matrix form
 variance_data_matrix <- variance_data %>% 
@@ -85,6 +85,8 @@ diag(sigma_estimated) <- 0.5 * diag(sigma_estimated)
 
 eigen(m_estimated)$values
 eigen(sigma_estimated)$values
+
+estimating_function_second_order_mm(portfolio_allocation = c(1,1,1), sigma_star_matrix = sigma_estimated, m_matrix = m_estimated, data = variance_data_matrix)[1]
 
 # try with constraints on eigenvalues
 library(alabama)
@@ -176,3 +178,7 @@ diag(sigma_estimated_auglag) <- 0.5 * diag(sigma_estimated_auglag)
 
 eigen(m_estimated_auglag)$values
 eigen(sigma_estimated_auglag)$values
+
+
+estimating_function_second_order_mm(portfolio_allocation = c(1,1,1), sigma_star_matrix = sigma_estimated_auglag, m_matrix = m_estimated_auglag, data = variance_data_matrix)[1]
+
